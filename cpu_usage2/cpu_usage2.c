@@ -11,8 +11,8 @@
 #include <unistd.h>
 #include <getopt.h>
 
-#define RED "#FF7373"
-#define ORANGE "#FFA500"
+#define RED "#FFED99"
+#define YELLOW "#E66565"
 
 typedef unsigned long long int ulli;
 
@@ -37,7 +37,7 @@ void display(const char *label, double used,
   if (critical != 0 && used > critical) {
     printf("%s<span color='%s'>", label, RED);
   } else if (warning != 0 && used > warning) {
-    printf("%s<span color='%s'>", label, ORANGE);
+    printf("%s<span color='%s'>", label, YELLOW);
   } else {
     printf("%s<span>", label);
   }
@@ -68,7 +68,7 @@ ulli get_usage(ulli *used_jiffies)
 
 int main(int argc, char *argv[])
 {
-  int warning = 50, critical = 80, t = 1, decimals = 2;
+  int warning = 60, critical = 80, t = 1, decimals = 2;
   char *label = "CPU ";
   int c;
   char *envvar = NULL;
